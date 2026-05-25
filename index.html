@@ -1,464 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Umar Saeed — Senior Laravel Developer</title>
-<meta name="description" content="Senior PHP Laravel Developer with 4+ years experience. Healthcare ERP, REST APIs, real-time systems, AWS, Docker. Open to remote worldwide.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --white:#ffffff;--off:#f8f7f4;--cream:#f0ede6;
-  --ink:#12100e;--ink2:#2d2926;--mid:#6b6560;--light:#a8a29e;
-  --accent:#1d4ed8;--accent2:#0ea5e9;--green:#059669;
-  --border:#e8e3dc;--border2:#d4cfc8;
-  --shadow:rgba(18,16,14,0.06);--shadow2:rgba(18,16,14,0.12);
-  --ff-d:'Playfair Display',Georgia,serif;
-  --ff-b:'DM Sans',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{background:var(--white);color:var(--ink2);font-family:var(--ff-b);font-size:16px;line-height:1.7;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.container{max-width:1060px;margin:0 auto;padding:0 2rem}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;transition:box-shadow .3s}
-nav.scrolled{box-shadow:0 2px 24px var(--shadow2)}
-.nav-logo{font-family:var(--ff-d);font-size:1.15rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
-.nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.78rem;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .3s ease}
-.nav-links a:hover{color:var(--accent)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
-.nav-cta{background:var(--ink)!important;color:var(--white)!important;padding:8px 18px;border-radius:7px;letter-spacing:.03em!important;transition:all .2s!important}
-.nav-cta:hover{background:var(--accent)!important;transform:translateY(-1px)}
-.nav-cta::after{display:none!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;display:block}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1.25rem;z-index:99;box-shadow:0 8px 32px var(--shadow2)}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1rem;color:var(--ink2);text-decoration:none;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border)}
-
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
-.hero-circle{position:absolute;border-radius:50%;pointer-events:none}
-.hc1{top:-15%;right:-8%;width:560px;height:560px;border:1px solid var(--border);animation:spin1 44s linear infinite}
-.hc2{top:-5%;right:-2%;width:360px;height:360px;border:1px solid var(--cream);animation:spin1 30s linear infinite reverse}
-.hc3{top:10%;right:4%;width:180px;height:180px;border:1px solid var(--border2);animation:spin1 20s linear infinite}
-@keyframes spin1{to{transform:rotate(360deg)}}
-.hero-inner{max-width:1060px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 210px;gap:4rem;align-items:center;position:relative;z-index:1}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--off);border:1px solid var(--border2);border-radius:100px;padding:6px 16px;font-size:.75rem;font-weight:500;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.75rem;opacity:0;animation:fadeup .6s ease forwards .2s}
-.hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-h1.hero-name{font-family:var(--ff-d);font-size:clamp(3.2rem,7.5vw,6.2rem);font-weight:900;line-height:.96;letter-spacing:-.035em;color:var(--ink);margin-bottom:1.5rem;opacity:0;animation:fadeup .7s ease forwards .35s}
-h1.hero-name em{font-style:italic;color:var(--accent);display:block}
-.hero-desc{font-size:1.05rem;color:var(--mid);max-width:480px;line-height:1.85;font-weight:300;margin-bottom:2.5rem;opacity:0;animation:fadeup .7s ease forwards .5s}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeup .7s ease forwards .65s}
-.btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);padding:.875rem 1.75rem;border-radius:8px;font-size:.9rem;font-weight:500;text-decoration:none;letter-spacing:.01em;transition:all .25s}
-.btn-dark:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 28px var(--shadow2)}
-.btn-light{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink2);padding:.875rem 1.75rem;border-radius:8px;border:1.5px solid var(--border2);font-size:.9rem;font-weight:500;text-decoration:none;transition:all .25s}
-.btn-light:hover{border-color:var(--ink);background:var(--off);transform:translateY(-2px)}
-.hero-card{background:var(--off);border:1px solid var(--border);border-radius:20px;padding:1.75rem;opacity:0;animation:fadeleft .7s ease forwards .5s}
-.hcs{margin-bottom:1.4rem}
-.hcs:last-child{margin-bottom:0}
-.stat-big{font-family:var(--ff-d);font-size:2.6rem;font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1}
-.stat-big span{color:var(--accent)}
-.stat-label{font-size:.72rem;color:var(--light);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
-.stat-div{height:1px;background:var(--border);margin:1.1rem 0}
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeup .6s ease forwards 1s}
-.scroll-line{width:1px;height:56px;background:linear-gradient(to bottom,var(--border2),transparent);animation:scrollline 2.2s ease infinite}
-@keyframes scrollline{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.scroll-text{font-size:.68rem;color:var(--light);letter-spacing:.1em;text-transform:uppercase}
-@keyframes fadeup{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeleft{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
-
-/* SECTIONS */
-section{padding:6rem 0}
-section:nth-child(even){background:var(--off)}
-.eyebrow{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:.75rem;display:flex;align-items:center;gap:10px}
-.eyebrow::after{content:'';width:36px;height:1px;background:var(--accent);opacity:.4}
-.sec-title{font-family:var(--ff-d);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;color:var(--ink);margin-bottom:3.5rem}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about-text p{color:var(--mid);font-size:1rem;line-height:1.85;font-weight:300;margin-bottom:1.25rem}
-.about-text p strong{color:var(--ink2);font-weight:500}
-.highlights{display:flex;flex-direction:column;gap:1rem}
-.hi{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;display:flex;gap:1rem;align-items:flex-start;transition:all .25s;transform:translateX(0)}
-.hi:hover{border-color:var(--accent);box-shadow:0 4px 20px var(--shadow);transform:translateX(5px)}
-.hi-icon{width:40px;height:40px;border-radius:10px;background:var(--off);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid var(--border)}
-.hi-title{font-size:.88rem;font-weight:500;color:var(--ink2);margin-bottom:2px}
-.hi-desc{font-size:.8rem;color:var(--light);line-height:1.5}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.sg{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all .3s}
-.sg:hover{border-color:var(--border2);box-shadow:0 8px 32px var(--shadow);transform:translateY(-4px)}
-.sg-head{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem}
-.sg-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:1px solid var(--border)}
-.sg-name{font-size:.88rem;font-weight:600;color:var(--ink2);letter-spacing:-.01em}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:.74rem;padding:4px 10px;border-radius:100px;background:var(--off);color:var(--mid);border:1px solid var(--border);font-weight:400;transition:all .2s;cursor:default}
-.tag:hover{background:var(--accent);color:var(--white);border-color:var(--accent)}
-
-/* EXPERIENCE */
-.exp-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3rem;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
-.exp-co{font-family:var(--ff-d);font-size:1.8rem;font-weight:900;letter-spacing:-.03em;color:var(--ink)}
-.exp-role{font-size:.95rem;color:var(--accent);font-weight:500;margin-top:4px}
-.exp-badge{background:var(--off);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:.8rem;color:var(--mid);font-weight:500;white-space:nowrap}
-.exp-list{list-style:none;display:flex;flex-direction:column;gap:0}
-.exp-list li{display:flex;gap:14px;font-size:.92rem;color:var(--mid);line-height:1.65;padding:.7rem 0;border-bottom:1px solid var(--border);transition:color .2s}
-.exp-list li:last-child{border-bottom:none}
-.exp-list li:hover{color:var(--ink2)}
-.exp-list li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:3px;font-size:.74rem}
-.exp-list li strong{color:var(--ink2);font-weight:500}
-
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.pc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;text-decoration:none;transition:all .3s;position:relative;overflow:hidden}
-.pc::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.pc:hover{border-color:var(--border2);box-shadow:0 12px 40px var(--shadow2);transform:translateY(-5px)}
-.pc:hover::after{transform:scaleX(1)}
-.pc-head{display:flex;justify-content:space-between;align-items:flex-start}
-.pc-icon{width:46px;height:46px;border-radius:12px;background:var(--off);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.35rem}
-.pc-arrow{color:var(--light);font-size:1.1rem;transition:all .25s}
-.pc:hover .pc-arrow{color:var(--accent);transform:translate(3px,-3px)}
-.pc-name{font-family:var(--ff-d);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
-.pc-badge{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:100px;background:#ecfdf5;color:var(--green);border:1px solid #a7f3d0;margin-top:4px}
-.pc-desc{font-size:.84rem;color:var(--mid);line-height:1.7;flex:1}
-.pc-tech{display:flex;flex-wrap:wrap;gap:5px}
-.pc-tech span{font-size:.72rem;padding:3px 9px;border-radius:100px;background:var(--off);color:var(--mid);border:1px solid var(--border)}
-
-/* CONTACT */
-#contact{background:var(--ink)}
-#contact .eyebrow{color:var(--accent2)}
-#contact .eyebrow::after{background:var(--accent2)}
-#contact .sec-title{color:var(--white)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-desc{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.8;font-weight:300;margin-bottom:2rem}
-.clinks{display:flex;flex-direction:column;gap:.875rem}
-.cl{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.75);text-decoration:none;font-size:.92rem;padding:.9rem 1.2rem;border:1px solid rgba(255,255,255,.1);border-radius:12px;transition:all .25s}
-.cl:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);color:var(--white);transform:translateX(5px)}
-.cl-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.cform{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:2.5rem}
-.cform h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;letter-spacing:-.02em}
-.ff{margin-bottom:1.1rem}
-.ff input,.ff textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.85rem 1.1rem;color:var(--white);font-family:var(--ff-b);font-size:.9rem;outline:none;transition:border-color .2s}
-.ff input::placeholder,.ff textarea::placeholder{color:rgba(255,255,255,.3)}
-.ff input:focus,.ff textarea:focus{border-color:var(--accent2)}
-.ff textarea{min-height:110px;resize:vertical}
-.btn-send{width:100%;background:var(--accent);color:var(--white);border:none;padding:.9rem;border-radius:10px;font-family:var(--ff-b);font-size:.9rem;font-weight:500;cursor:pointer;transition:all .25s;letter-spacing:.01em}
-.btn-send:hover{background:#1a44c8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,78,216,.4)}
-
-footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);text-align:center;padding:1.75rem 2rem;color:rgba(255,255,255,.3);font-size:.8rem}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-/* RESPONSIVE */
-@media(max-width:860px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-card{display:none}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .exp-card{padding:1.75rem}
-  .exp-head{flex-direction:column}
-}
-@media(max-width:540px){
-  .proj-grid,.skills-grid{grid-template-columns:1fr}
-  h1.hero-name{font-size:3rem}
-  .hero-ctas{flex-direction:column}
-  .btn-dark,.btn-light{justify-content:center}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior PHP Laravel Developer with 4+ years experience. Healthcare ERP, REST APIs, real-time systems, AWS, Docker. Open to remote worldwide." />
+  <title>Muhammad Umar Saeed — Senior Laravel Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">Umar<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-  </ul>
-  <button class="hamburger" id="ham" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-menu" id="mmenu">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#experience" onclick="closeMenu()">Experience</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#contact" onclick="closeMenu()">Hire Me →</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-circle hc1"></div>
-  <div class="hero-circle hc2"></div>
-  <div class="hero-circle hc3"></div>
-  <div class="hero-inner container">
-    <div>
-      <div class="hero-tag">Available for remote opportunities</div>
-      <h1 class="hero-name">Muhammad<br>Umar <em>Saeed</em></h1>
-      <p class="hero-desc">Senior PHP Laravel Developer building secure, scalable web applications for international clients. Specialized in backend architecture, RESTful APIs, real-time systems, and cloud deployments.</p>
-      <div class="hero-ctas">
-        <a href="#projects" class="btn-dark">View My Work ↓</a>
-        <a href="mailto:umar.saeed19202@gmail.com" class="btn-light">Get in Touch</a>
-      </div>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">U<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Hire Me →</a>
+      </nav>
+      <button class="nav-burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="hero-card">
-      <div class="hcs"><div class="stat-big">4<span>+</span></div><div class="stat-label">Years Experience</div></div>
-      <div class="stat-div"></div>
-      <div class="hcs"><div class="stat-big">8<span>+</span></div><div class="stat-label">Production Apps</div></div>
-      <div class="stat-div"></div>
-      <div class="hcs"><div class="stat-big">20<span>M+</span></div><div class="stat-label">Messages Handled</div></div>
-      <div class="stat-div"></div>
-      <div class="hcs"><div class="stat-big">1<span>M+</span></div><div class="stat-label">Chat Rooms Built</div></div>
+    <div class="nav-mobile" id="mobile-menu">
+      <a href="#about" class="mob-link">About</a>
+      <a href="#skills" class="mob-link">Skills</a>
+      <a href="#experience" class="mob-link">Experience</a>
+      <a href="#projects" class="mob-link">Projects</a>
+      <a href="#contact" class="mob-link mob-cta">Hire Me →</a>
     </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span class="scroll-text">Scroll</span>
-  </div>
-</section>
+  </header>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="eyebrow reveal">Who I am</div>
-    <div class="sec-title reveal">Passionate about<br>clean, scalable code.</div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a <strong>Senior PHP Laravel Developer</strong> based in Gujranwala, Pakistan, with over four years of professional experience architecting and delivering web applications for international clients.</p>
-        <p>I've worked across <strong>healthcare ERP systems, sports streaming platforms, fintech payment applications, e-learning platforms, and social media products</strong> — all built to production standards and deployed globally.</p>
-        <p>My most complex project is <strong>ExtraTrik</strong> — a multi-tenant healthcare ERP serving multiple Turkish clinics, handling over <strong>1 million chat rooms and 20 million messages</strong> with real-time AI translation.</p>
-        <p>I am <strong>fully remote-ready</strong>, experienced with international teams, and always focused on shipping code that is clean, secure, and built to last.</p>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for remote opportunities
       </div>
-      <div class="highlights">
-        <div class="hi reveal d1">
-          <div class="hi-icon">🎓</div>
-          <div><div class="hi-title">MSc Information Technology</div><div class="hi-desc">University of the Punjab, Gujranwala · 2019–2021</div></div>
+      <h1 class="hero-title reveal">
+        Muhammad<br/>
+        <em>Umar</em> Saeed
+      </h1>
+      <p class="hero-sub reveal">Senior PHP Laravel Developer building secure, scalable web applications for international clients. Specialized in backend architecture, RESTful APIs, real-time systems, and cloud deployments.</p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+        <a href="mailto:umar.saeed19202@gmail.com" class="btn btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <strong>4+</strong>
+          <span>Years Experience</span>
         </div>
-        <div class="hi reveal d2">
-          <div class="hi-icon">🎓</div>
-          <div><div class="hi-title">BSc Computer Science</div><div class="hi-desc">University of the Punjab, Lahore · 2016–2018</div></div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <strong>8+</strong>
+          <span>Production Apps</span>
         </div>
-        <div class="hi reveal d3">
-          <div class="hi-icon">🏢</div>
-          <div><div class="hi-title">AppCrates — Senior Laravel Developer</div><div class="hi-desc">Dec 2021 – Present · International remote projects</div></div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <strong>20M+</strong>
+          <span>Messages Handled</span>
         </div>
-        <div class="hi reveal d4">
-          <div class="hi-icon">🌍</div>
-          <div><div class="hi-title">Open to Remote Worldwide</div><div class="hi-desc">PKT (UTC+5) · Flexible timezone overlap</div></div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <strong>1M+</strong>
+          <span>Chat Rooms Built</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="eyebrow reveal">What I work with</div>
-    <div class="sec-title reveal">Technical Skills</div>
-    <div class="skills-grid">
-      <div class="sg reveal d1">
-        <div class="sg-head"><div class="sg-icon" style="background:#eff6ff">🔧</div><div class="sg-name">Backend Development</div></div>
-        <div class="tags"><span class="tag">PHP 7.4/8.x</span><span class="tag">Laravel 9–12</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Eloquent ORM</span><span class="tag">Multi-Tenancy</span><span class="tag">RBAC</span><span class="tag">Sanctum</span><span class="tag">JWT Auth</span><span class="tag">Cron Jobs</span><span class="tag">Queue Jobs</span><span class="tag">Socialite</span></div>
-      </div>
-      <div class="sg reveal d2">
-        <div class="sg-head"><div class="sg-icon" style="background:#ecfdf5">⚡</div><div class="sg-name">Real-Time & Communication</div></div>
-        <div class="tags"><span class="tag">WebSockets</span><span class="tag">Pusher</span><span class="tag">Redis</span><span class="tag">Socket.io</span><span class="tag">Twilio</span><span class="tag">Firebase</span><span class="tag">GupShup</span><span class="tag">Meta API</span></div>
-      </div>
-      <div class="sg reveal d3">
-        <div class="sg-head"><div class="sg-icon" style="background:#f5f3ff">☁️</div><div class="sg-name">Cloud & DevOps</div></div>
-        <div class="tags"><span class="tag">AWS S3/EC2</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">CI/CD</span><span class="tag">PlanetScale</span><span class="tag">cPanel</span><span class="tag">PHPUnit</span></div>
-      </div>
-      <div class="sg reveal d1">
-        <div class="sg-head"><div class="sg-icon" style="background:#fffbeb">💳</div><div class="sg-name">Payments & CRM</div></div>
-        <div class="tags"><span class="tag">Stripe</span><span class="tag">Webhooks</span><span class="tag">PayPal</span><span class="tag">Zoho CRM</span><span class="tag">Subscription Billing</span></div>
-      </div>
-      <div class="sg reveal d2">
-        <div class="sg-head"><div class="sg-icon" style="background:#fff1f2">🎨</div><div class="sg-name">Frontend & SPA</div></div>
-        <div class="tags"><span class="tag">JavaScript ES6+</span><span class="tag">jQuery/AJAX</span><span class="tag">Axios</span><span class="tag">Bootstrap 5</span><span class="tag">HTML5/CSS3</span><span class="tag">React</span><span class="tag">SPA Dashboards</span></div>
-      </div>
-      <div class="sg reveal d3">
-        <div class="sg-head"><div class="sg-icon" style="background:#f0fdf4">🛠️</div><div class="sg-name">Tools & Workflow</div></div>
-        <div class="tags"><span class="tag">Git/GitHub</span><span class="tag">BitBucket</span><span class="tag">Jira</span><span class="tag">Postman</span><span class="tag">Agile/Scrum</span><span class="tag">Code Review</span><span class="tag">SourceTree</span></div>
-      </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="eyebrow reveal">Where I've worked</div>
-    <div class="sec-title reveal">Work Experience</div>
-    <div class="exp-card reveal">
-      <div class="exp-head">
-        <div><div class="exp-co">AppCrates</div><div class="exp-role">Senior PHP Laravel Developer</div></div>
-        <div class="exp-badge">Dec 2021 – Present &nbsp;·&nbsp; Gujranwala, Pakistan</div>
-      </div>
-      <ul class="exp-list">
-        <li>Developed and maintained <strong>8+ production Laravel applications</strong> for international clients across healthcare, sports streaming, fintech, e-commerce, and social media using <strong>Laravel 9–12 and PHP 7.4/8.x</strong></li>
-        <li>Designed production-grade <strong>RESTful APIs</strong> across 8+ platforms with Laravel Sanctum, JWT authentication, and RBAC for web, Android, and iOS applications</li>
-        <li>Engineered <strong>multi-tenant healthcare ERP</strong> (ExtraTrik / ToMerge) for Turkish clinics with isolated dashboards, WhatsApp/Instagram/Messenger integration, <strong>1M+ chat rooms and ~20M messages</strong></li>
-        <li>Built <strong>AI-powered video conferencing</strong> using Twilio SDK with real-time message translation and correction during live patient chat sessions</li>
-        <li>Integrated <strong>Stripe payment gateway</strong> across multiple platforms — lesson purchases, slot bookings, subscriptions, and digital/physical product sales with webhook handling</li>
-        <li>Developed <strong>Laravel Queue Jobs and Cron Jobs</strong> with Redis for async processing — bulk WhatsApp imports, podcast syncing, notifications, and media processing</li>
-        <li>Optimized <strong>MySQL queries, indexing, and Eloquent eager loading</strong> for reporting across 20M+ messages with date-range and custom filter support</li>
-        <li>Managed <strong>GitHub Actions CI/CD pipelines</strong>, Docker environments, AWS S3, and PlanetScale production databases across international projects</li>
-        <li>Enforced <strong>Laravel security best practices</strong> — Form Request validation, parameterized queries, CSRF protection, XSS escaping, and rate limiting</li>
-        <li>Collaborated in <strong>Jira-based agile workflows</strong> with Git branching, pull requests, and code reviews across fully remote international teams</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label reveal">Who I am</div>
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <h2 class="section-title">Passionate about<br/><em>clean, scalable code.</em></h2>
+        </div>
+        <div class="about-right">
+          <p class="about-text reveal">I'm a <strong>Senior PHP Laravel Developer</strong> based in Gujranwala, Pakistan, with over four years of professional experience architecting and delivering web applications for international clients.</p>
+          <p class="about-text reveal">I've worked across <strong>healthcare ERP systems, sports streaming platforms, fintech payment applications, e-learning platforms, and social media products</strong> — all built to production standards and deployed globally.</p>
+          <p class="about-text reveal">My most complex project is <strong>ExtraTrik</strong> — a multi-tenant healthcare ERP serving multiple Turkish clinics, handling over <strong>1 million chat rooms and 20 million messages</strong> with real-time AI translation.</p>
+          <p class="about-text reveal">I am <strong>fully remote-ready</strong>, experienced with international teams, and always focused on shipping code that is clean, secure, and built to last.</p>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="eyebrow reveal">What I've built</div>
-    <div class="sec-title reveal">Featured Projects</div>
-    <div class="proj-grid">
-
-      <a href="https://extratik.com" target="_blank" rel="noopener" class="pc reveal d1">
-        <div class="pc-head"><div class="pc-icon">🏥</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">ExtraTrik</div><span class="pc-badge">1M+ chat rooms · 20M+ messages</span></div>
-        <p class="pc-desc">Multi-tenant healthcare ERP for Turkish clinics. Isolated dashboards, WhatsApp/Instagram/Messenger integration, Twilio video calling with AI-powered real-time message translation, and Zoho CRM.</p>
-        <div class="pc-tech"><span>Laravel</span><span>MySQL</span><span>WebSockets</span><span>Twilio</span><span>GupShup</span><span>Meta API</span></div>
-      </a>
-
-      <a href="https://app.sport-social.co.uk" target="_blank" rel="noopener" class="pc reveal d2">
-        <div class="pc-head"><div class="pc-icon">🎙️</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">SportSocial</div><span class="pc-badge">Europe's largest sports podcast</span></div>
-        <p class="pc-desc">Europe's largest sports podcast network. Cron-based podcast ingestion, per-user progress tracking, live episode purchases, and mobile APIs for Android &amp; iOS with Apple Sign-In.</p>
-        <div class="pc-tech"><span>Laravel</span><span>PostgreSQL</span><span>jQuery</span><span>Cron Jobs</span><span>REST APIs</span></div>
-      </a>
-
-      <a href="https://inspobin.com" target="_blank" rel="noopener" class="pc reveal d3">
-        <div class="pc-head"><div class="pc-icon">🎨</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">Inspobin</div></div>
-        <p class="pc-desc">Google Drive-style multimedia platform with AWS S3 storage tiers, in-browser audio/video recording, keyword-driven filtering, Stripe billing, and mobile APIs.</p>
-        <div class="pc-tech"><span>Laravel</span><span>AWS S3</span><span>Stripe</span><span>MySQL</span><span>REST APIs</span></div>
-      </a>
-
-      <a href="https://athconnected.com" target="_blank" rel="noopener" class="pc reveal d1">
-        <div class="pc-head"><div class="pc-icon">📚</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">VirtualLesson</div></div>
-        <p class="pc-desc">E-learning platform with slot-based lecture booking, Stripe payment integration, admin dashboard, and full backend API layer for online learning.</p>
-        <div class="pc-tech"><span>Laravel</span><span>Stripe</span><span>MySQL</span><span>REST APIs</span></div>
-      </a>
-
-      <a href="https://casperspro.com" target="_blank" rel="noopener" class="pc reveal d2">
-        <div class="pc-head"><div class="pc-icon">🛒</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">CaspersPro</div></div>
-        <p class="pc-desc">Multi-role business platform for equipment and spare parts trading with role-controlled dashboards and mobile APIs for iOS and Android.</p>
-        <div class="pc-tech"><span>Laravel</span><span>MySQL</span><span>REST APIs</span><span>JavaScript</span></div>
-      </a>
-
-      <a href="https://app.bell3.net" target="_blank" rel="noopener" class="pc reveal d3">
-        <div class="pc-head"><div class="pc-icon">💬</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">Bell3</div></div>
-        <p class="pc-desc">Social communication platform with posts, physical &amp; digital product sales, likes, comments, and Stripe-powered paid promotions with full webhook handling.</p>
-        <div class="pc-tech"><span>Laravel</span><span>PlanetScale</span><span>Stripe</span><span>REST APIs</span></div>
-      </a>
-
-      <a href="https://www.ventie30.it" target="_blank" rel="noopener" class="pc reveal d1">
-        <div class="pc-head"><div class="pc-icon">⚾</div><span class="pc-arrow">↗</span></div>
-        <div><div class="pc-name">Ventie30 / WBSC</div><span class="pc-badge">World Baseball Softball Confederation</span></div>
-        <p class="pc-desc">Multi-module sports ERP for WBSC with Google Sheets integration, multilingual support, dynamic form-to-database workflows, and permission-based access control.</p>
-        <div class="pc-tech"><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>Google Sheets API</span></div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="eyebrow reveal">Let's work together</div>
-    <div class="sec-title reveal">Open to Remote<br>Opportunities</div>
-    <div class="contact-grid">
-      <div>
-        <p class="contact-desc reveal">I'm available for senior Laravel/PHP backend roles worldwide. If you're building something with Laravel, REST APIs, real-time systems, or payment integrations — let's talk.</p>
-        <div class="clinks">
-          <a href="mailto:umar.saeed19202@gmail.com" class="cl reveal d1"><div class="cl-icon">✉️</div>umar.saeed19202@gmail.com</a>
-          <a href="https://linkedin.com/in/muhammad-umar-saeed09" target="_blank" rel="noopener" class="cl reveal d2"><div class="cl-icon">💼</div>linkedin.com/in/muhammad-umar-saeed09</a>
-          <a href="https://github.com/umar19202" target="_blank" rel="noopener" class="cl reveal d3"><div class="cl-icon">🐙</div>github.com/umar19202</a>
-          <a href="tel:+923207941139" class="cl reveal d4"><div class="cl-icon">📱</div>+92 320 794 1139</a>
+          <div class="about-cards reveal">
+            <div class="about-card">
+              <div class="about-card-icon">🎓</div>
+              <div>
+                <strong>MSc Information Technology</strong>
+                <span>University of the Punjab, Gujranwala · 2019–2021</span>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">🎓</div>
+              <div>
+                <strong>BSc Computer Science</strong>
+                <span>University of the Punjab, Lahore · 2016–2018</span>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">🏢</div>
+              <div>
+                <strong>AppCrates — Senior Laravel Developer</strong>
+                <span>Dec 2021 – Apr 2026 · International remote projects</span>
+              </div>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">🌍</div>
+              <div>
+                <strong>Open to Remote Worldwide</strong>
+                <span>PKT (UTC+5) · Flexible timezone overlap</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="cform reveal d2">
-        <h3>Send a Message</h3>
-        <div class="ff"><input type="text" placeholder="Your Name"></div>
-        <div class="ff"><input type="email" placeholder="Your Email"></div>
-        <div class="ff"><textarea placeholder="Tell me about your project or opportunity..."></textarea></div>
-        <button class="btn-send" onclick="handleSend(this)">Send Message →</button>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label reveal">What I work with</div>
+      <h2 class="section-title reveal">Technical <em>Skills</em></h2>
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🔧</div>
+          <h3>Backend Development</h3>
+          <div class="skill-tags">
+            <span>PHP 7.4/8.x</span><span>Laravel 9–12</span><span>MySQL</span><span>PostgreSQL</span><span>Eloquent ORM</span><span>Multi-Tenancy</span><span>RBAC</span><span>Sanctum</span><span>JWT Auth</span><span>Cron Jobs</span><span>Queue Jobs</span><span>Socialite</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">⚡</div>
+          <h3>Real-Time & Communication</h3>
+          <div class="skill-tags">
+            <span>WebSockets</span><span>Pusher</span><span>Redis</span><span>Socket.io</span><span>Twilio</span><span>Firebase</span><span>GupShup</span><span>Meta API</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">☁️</div>
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-tags">
+            <span>AWS S3</span><span>Docker</span><span>GitHub Actions</span><span>CI/CD</span><span>PlanetScale</span><span>cPanel</span><span>PHPUnit</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">💳</div>
+          <h3>Payments & CRM</h3>
+          <div class="skill-tags">
+            <span>Stripe</span><span>Webhooks</span><span>PayPal</span><span>Zoho CRM</span><span>Subscription Billing</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🎨</div>
+          <h3>Frontend & SPA</h3>
+          <div class="skill-tags">
+            <span>JavaScript ES6+</span><span>jQuery/AJAX</span><span>Axios</span><span>Bootstrap 5</span><span>HTML5/CSS3</span><span>SPA Dashboards</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🛠️</div>
+          <h3>Tools & Workflow</h3>
+          <div class="skill-tags">
+            <span>Git/GitHub</span><span>BitBucket</span><span>Jira</span><span>Postman</span><span>Agile/Scrum</span><span>Code Review</span><span>SourceTree</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>Muhammad Umar Saeed &nbsp;·&nbsp; Senior PHP Laravel Developer &nbsp;·&nbsp; Gujranwala, Pakistan &nbsp;·&nbsp; Open to remote worldwide</p>
-</footer>
+  <!-- EXPERIENCE -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-label reveal">Where I've worked</div>
+      <h2 class="section-title reveal">Work <em>Experience</em></h2>
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div class="exp-left">
+            <div class="exp-company">AppCrates</div>
+            <div class="exp-role">Senior PHP Laravel Developer</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-badge">Full-Time</span>
+            <div class="exp-date">Dec 2021 – Apr 2026</div>
+            <div class="exp-location">Gujranwala, Pakistan · Remote</div>
+          </div>
+        </div>
+        <ul class="exp-list">
+          <li>Developed and maintained <strong>8+ production Laravel applications</strong> for international clients across healthcare, sports streaming, fintech, e-commerce, and social media using <strong>Laravel 9–12 and PHP 7.4/8.x</strong></li>
+          <li>Designed production-grade <strong>RESTful APIs</strong> across 8+ platforms with Laravel Sanctum, JWT authentication, and RBAC for web, Android, and iOS applications</li>
+          <li>Engineered <strong>multi-tenant healthcare ERP</strong> (ExtraTrik / ToMerge) for Turkish clinics with isolated dashboards, WhatsApp/Instagram/Messenger integration, <strong>1M+ chat rooms and ~20M messages</strong></li>
+          <li>Built <strong>AI-powered video conferencing</strong> using Twilio SDK with real-time message translation and correction during live patient chat sessions</li>
+          <li>Integrated <strong>Stripe payment gateway</strong> across multiple platforms — lesson purchases, slot bookings, subscriptions, and digital/physical product sales with webhook handling</li>
+          <li>Developed <strong>Laravel Queue Jobs and Cron Jobs</strong> with Redis for async processing — bulk WhatsApp imports, podcast syncing, notifications, and media processing</li>
+          <li>Optimized <strong>MySQL queries, indexing, and Eloquent eager loading</strong> for reporting across 20M+ messages with date-range and custom filter support</li>
+          <li>Managed <strong>GitHub Actions CI/CD pipelines</strong>, Docker environments, AWS S3, and PlanetScale production databases across international projects</li>
+          <li>Enforced <strong>Laravel security best practices</strong> — Form Request validation, parameterized queries, CSRF protection, XSS escaping, and rate limiting</li>
+          <li>Collaborated in <strong>Jira-based agile workflows</strong> with Git branching, pull requests, and code reviews across fully remote international teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30);
-  let cur='';
-  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id});
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent)':'';
-  });
-});
+  <!-- PROJECTS -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label reveal">What I've built</div>
+      <h2 class="section-title reveal">Featured <em>Projects</em></h2>
+      <div class="projects-grid">
 
-function toggleMenu(){
-  document.getElementById('ham').classList.toggle('open');
-  document.getElementById('mmenu').classList.toggle('open');
-}
-function closeMenu(){
-  document.getElementById('ham').classList.remove('open');
-  document.getElementById('mmenu').classList.remove('open');
-}
+        <a href="https://extratik.com" target="_blank" rel="noopener" class="project-card project-featured reveal">
+          <div class="project-top">
+            <div class="project-emoji">🏥</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">Healthcare ERP</div>
+          <h3 class="project-name">ExtraTrik</h3>
+          <p class="project-stat">1M+ chat rooms · 20M+ messages</p>
+          <p class="project-desc">Multi-tenant healthcare ERP for Turkish clinics. Isolated dashboards, WhatsApp/Instagram/Messenger integration, Twilio video calling with AI-powered real-time message translation, and Zoho CRM.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>MySQL</span><span>WebSockets</span><span>Twilio</span><span>GupShup</span><span>Meta API</span>
+          </div>
+        </a>
 
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70);
-  });
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+        <a href="https://app.sport-social.co.uk" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">🎙️</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">Sports Streaming</div>
+          <h3 class="project-name">SportSocial</h3>
+          <p class="project-stat">Europe's largest sports podcast</p>
+          <p class="project-desc">Sports podcast network with Cron-based podcast ingestion, per-user progress tracking, live episode purchases, and mobile APIs for Android & iOS with Apple Sign-In.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>PostgreSQL</span><span>jQuery</span><span>Cron Jobs</span><span>REST APIs</span>
+          </div>
+        </a>
 
-function handleSend(btn){
-  const inputs=btn.closest('.cform').querySelectorAll('input,textarea');
-  let ok=true;
-  inputs.forEach(i=>{if(!i.value.trim())ok=false});
-  if(!ok){btn.textContent='Please fill all fields';setTimeout(()=>{btn.textContent='Send Message →';},2200);return;}
-  btn.textContent='Message Sent! ✓';
-  btn.style.background='#059669';
-  inputs.forEach(i=>i.value='');
-  setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';},3000);
-}
-</script>
+        <a href="https://inspobin.com" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">🎨</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">Cloud Storage</div>
+          <h3 class="project-name">Inspobin</h3>
+          <p class="project-stat">Google Drive-style platform</p>
+          <p class="project-desc">Multimedia platform with AWS S3 storage tiers, in-browser audio/video recording, keyword-driven filtering, Stripe billing, and mobile APIs.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>AWS S3</span><span>Stripe</span><span>MySQL</span><span>REST APIs</span>
+          </div>
+        </a>
+
+        <a href="https://athconnected.com" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">📚</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">E-Learning</div>
+          <h3 class="project-name">VirtualLesson</h3>
+          <p class="project-stat">Online learning platform</p>
+          <p class="project-desc">E-learning platform with slot-based lecture booking, Stripe payment integration, admin dashboard, and full backend API layer.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>Stripe</span><span>MySQL</span><span>REST APIs</span>
+          </div>
+        </a>
+
+        <a href="https://casperspro.com" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">🛒</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">B2B Marketplace</div>
+          <h3 class="project-name">CaspersPro</h3>
+          <p class="project-stat">Multi-role business platform</p>
+          <p class="project-desc">Equipment and spare parts trading platform with role-controlled dashboards and mobile APIs for iOS and Android.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>MySQL</span><span>REST APIs</span><span>JavaScript</span>
+          </div>
+        </a>
+
+        <a href="https://app.bell3.net" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">💬</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">Social Platform</div>
+          <h3 class="project-name">Bell3</h3>
+          <p class="project-stat">Social commerce platform</p>
+          <p class="project-desc">Communication platform with posts, physical & digital product sales, likes, comments, and Stripe-powered paid promotions with full webhook handling.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>PlanetScale</span><span>Stripe</span><span>REST APIs</span>
+          </div>
+        </a>
+
+        <a href="https://www.ventie30.it" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-top">
+            <div class="project-emoji">⚾</div>
+            <div class="project-arrow">↗</div>
+          </div>
+          <div class="project-label">Sports ERP</div>
+          <h3 class="project-name">Ventie30 / WBSC</h3>
+          <p class="project-stat">World Baseball Softball Confederation</p>
+          <p class="project-desc">Multi-module sports ERP for WBSC with Google Sheets integration, multilingual support, dynamic form-to-database workflows, and permission-based access.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>Google Sheets API</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">Let's work together</div>
+      <h2 class="section-title reveal">Open to Remote<br/><em>Opportunities</em></h2>
+      <p class="contact-sub reveal">I'm available for senior Laravel/PHP backend roles worldwide. If you're building something with Laravel, REST APIs, real-time systems, or payment integrations — let's talk.</p>
+
+      <div class="contact-grid reveal">
+        <div class="contact-links">
+          <a href="mailto:umar.saeed19202@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-val">umar.saeed19202@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/muhammad-umar-saeed09" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-val">muhammad-umar-saeed09</span>
+            </div>
+          </a>
+          <a href="https://github.com/umar19202" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">🐙</div>
+            <div>
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-val">github.com/umar19202</span>
+            </div>
+          </a>
+          <a href="tel:+923207941139" class="contact-link">
+            <div class="contact-link-icon">📱</div>
+            <div>
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-val">+92 320 794 1139</span>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project or job opportunity" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or role..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>Muhammad Umar Saeed · Senior PHP Laravel Developer · Gujranwala, Pakistan</span>
+      <span>Open to remote worldwide</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
