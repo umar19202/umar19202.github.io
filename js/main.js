@@ -1,5 +1,5 @@
 /* =====================================================
-   Umar Saeed Portfolio — Main JavaScript
+   Umar Saeed Portfolio — Main JavaScript v2
    ===================================================== */
 
 'use strict';
@@ -13,7 +13,6 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', open);
 });
 
-/* Close on link click */
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     navMenu.classList.remove('open');
@@ -21,64 +20,155 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-/* ===== ACTIVE NAV LINK on scroll ===== */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-link');
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.focus();
+  }
+});
 
-function updateActiveLink() {
+/* ===== ACTIVE NAV LINK + NAVBAR LIGHT/DARK AWARENESS ===== */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const navbar   = document.getElementById('navbar');
+
+function updateActiveLinkAndNavbarTheme() {
   let current = '';
+  let onLight = false;
+
   sections.forEach(sec => {
     const top = sec.offsetTop - 100;
-    if (window.scrollY >= top) current = sec.getAttribute('id');
+    if (window.scrollY >= top) {
+      current = sec.getAttribute('id');
+      onLight = sec.classList.contains('panel-light');
+    }
   });
+
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
   });
+
+  navbar.classList.toggle('on-light', onLight);
 }
 
-/* ===== SCROLL REVEAL ===== */
-const reveals = document.querySelectorAll('.reveal');
+/* ===== SCROLL PROGRESS RAIL ===== */
+const progressFill = document.getElementById('progressFill');
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      /* Stagger siblings slightly */
-      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
-      const idx      = siblings.indexOf(entry.target);
-      const delay    = Math.min(idx * 60, 300);
-      setTimeout(() => entry.target.classList.add('visible'), delay);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-reveals.forEach(el => revealObserver.observe(el));
+function updateProgress() {
+  const scrollTop    = window.scrollY;
+  const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
+  const pct          = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressFill.style.width = `${pct}%`;
+}
 
 /* ===== BACK TO TOP ===== */
 const backBtn = document.getElementById('backToTop');
 
-function onScroll() {
-  if (window.scrollY > 400) backBtn.classList.add('visible');
-  else                       backBtn.classList.remove('visible');
-  updateActiveLink();
+function toggleBackToTop() {
+  backBtn.classList.toggle('visible', window.scrollY > 400);
 }
-
-window.addEventListener('scroll', onScroll, { passive: true });
 
 backBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* ===== NAVBAR SHADOW on scroll ===== */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.4)';
-  } else {
-    navbar.style.boxShadow = 'none';
+/* ===== COMBINED SCROLL HANDLER (perf: single rAF loop) ===== */
+let scrollTicking = false;
+function onScroll() {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      updateActiveLinkAndNavbarTheme();
+      updateProgress();
+      toggleBackToTop();
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
-}, { passive: true });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll(); // initialize on load
+
+/* ===== SCROLL REVEAL ===== */
+const reveals = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+      const idx       = siblings.indexOf(entry.target);
+      const delay      = Math.min(idx * 70, 350);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+/* ===== COUNT-UP STATS (hero) ===== */
+const statNums = document.querySelectorAll('.stat-num');
+
+function animateCount(el) {
+  const target  = parseInt(el.getAttribute('data-count'), 10) || 0;
+  const suffix  = el.getAttribute('data-suffix') || '';
+  const duration = 1400;
+  const start    = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased    = 1 - Math.pow(1 - progress, 3); /* ease-out cubic */
+    const value    = Math.round(eased * target);
+    el.textContent = value + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+statNums.forEach(el => statsObserver.observe(el));
+
+/* ===== CURSOR DOT (desktop, decorative) ===== */
+const cursorDot = document.getElementById('cursorDot');
+const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+if (isFinePointer && cursorDot) {
+  let mouseX = 0, mouseY = 0;
+  let dotX = 0, dotY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.classList.add('active');
+  });
+
+  document.addEventListener('mouseleave', () => cursorDot.classList.remove('active'));
+
+  function followCursor() {
+    dotX += (mouseX - dotX) * 0.22;
+    dotY += (mouseY - dotY) * 0.22;
+    cursorDot.style.left = `${dotX}px`;
+    cursorDot.style.top  = `${dotY}px`;
+    requestAnimationFrame(followCursor);
+  }
+  followCursor();
+
+  /* Grow on interactive elements */
+  const growTargets = document.querySelectorAll('a, button, .skill-card, .project-card, .timeline-item, .edu-card, .contact-item');
+  growTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => cursorDot.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursorDot.classList.remove('grow'));
+  });
+}
 
 /* ===== CONTACT FORM ===== */
 const form      = document.getElementById('contactForm');
@@ -92,7 +182,6 @@ form.addEventListener('submit', (e) => {
   const email   = form.querySelector('#email').value.trim();
   const message = form.querySelector('#message').value.trim();
 
-  /* Basic validation */
   if (!name || !email || !message) {
     formNote.textContent = 'Please fill in all required fields.';
     formNote.className   = 'form-note error';
@@ -104,43 +193,20 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  /* Simulate send — opens mailto as fallback (no backend on GitHub Pages) */
-  submitBtn.disabled     = true;
-  submitBtn.textContent  = 'Sending…';
+  submitBtn.disabled    = true;
+  submitBtn.textContent = 'Sending…';
 
   const subject = form.querySelector('#subject').value.trim() || 'Portfolio Inquiry';
   const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
   const mailto  = `mailto:umar.saeed19202@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
   setTimeout(() => {
-    window.location.href = mailto;
-    submitBtn.disabled    = false;
-    submitBtn.textContent = 'Send Message →';
-    formNote.textContent  = 'Your email client should open now. Thank you!';
-    formNote.className    = 'form-note success';
+    window.location.href   = mailto;
+    submitBtn.disabled     = false;
+    submitBtn.textContent  = 'Send Message →';
+    formNote.textContent   = 'Your email client should open now. Thank you!';
+    formNote.className     = 'form-note success';
     form.reset();
     setTimeout(() => { formNote.textContent = ''; formNote.className = 'form-note'; }, 8000);
   }, 600);
 });
-
-/* ===== KEYBOARD: close nav on Escape ===== */
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-    navMenu.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.focus();
-  }
-});
-
-/* ===== SMOOTH typing cursor effect on hero name ===== */
-/* Optional subtle shimmer — no heavy animation, just a glow pulse on load */
-const heroName = document.querySelector('.hero-name');
-if (heroName) {
-  heroName.style.opacity = '0';
-  heroName.style.transform = 'translateY(16px)';
-  heroName.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  setTimeout(() => {
-    heroName.style.opacity   = '1';
-    heroName.style.transform = 'none';
-  }, 200);
-}
