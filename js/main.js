@@ -1,5 +1,5 @@
 /* =====================================================
-   Umar Saeed Portfolio — Main JavaScript v2
+   Umar Saeed Portfolio — Main JavaScript v4
    ===================================================== */
 
 'use strict';
@@ -28,20 +28,18 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-/* ===== ACTIVE NAV LINK + NAVBAR LIGHT/DARK AWARENESS ===== */
+/* ===== ACTIVE NAV LINK + NAVBAR ELEVATION ===== */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 const navbar   = document.getElementById('navbar');
 
 function updateActiveLinkAndNavbarTheme() {
   let current = '';
-  let onLight = false;
 
   sections.forEach(sec => {
     const top = sec.offsetTop - 100;
     if (window.scrollY >= top) {
       current = sec.getAttribute('id');
-      onLight = sec.classList.contains('panel-light');
     }
   });
 
@@ -50,7 +48,7 @@ function updateActiveLinkAndNavbarTheme() {
     if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
   });
 
-  navbar.classList.toggle('on-light', onLight);
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
 }
 
 /* ===== SCROLL PROGRESS RAIL ===== */
@@ -61,6 +59,29 @@ function updateProgress() {
   const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
   const pct          = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   progressFill.style.width = `${pct}%`;
+}
+
+/* ===== TIMELINE SCROLL-LINKED GOLD THREAD ===== */
+const timelineEl     = document.getElementById('timeline');
+const timelineThread  = document.getElementById('timelineThread');
+const timelineItems   = document.querySelectorAll('.timeline-item');
+
+function updateTimelineThread() {
+  if (!timelineEl || !timelineThread) return;
+  const rect      = timelineEl.getBoundingClientRect();
+  const viewportH = window.innerHeight;
+  const start     = viewportH * 0.75;          /* thread starts filling once timeline top hits 75% down viewport */
+  const total     = rect.height + viewportH * 0.4;
+  const progressed = start - rect.top;
+  const pct = Math.max(0, Math.min(1, progressed / total));
+  timelineThread.style.height = `${pct * 100}%`;
+
+  timelineItems.forEach(item => {
+    const itemRect = item.getBoundingClientRect();
+    if (itemRect.top < viewportH * 0.8) {
+      item.classList.add('in-view');
+    }
+  });
 }
 
 /* ===== BACK TO TOP ===== */
@@ -82,6 +103,7 @@ function onScroll() {
       updateActiveLinkAndNavbarTheme();
       updateProgress();
       toggleBackToTop();
+      updateTimelineThread();
       scrollTicking = false;
     });
     scrollTicking = true;
@@ -163,12 +185,52 @@ if (isFinePointer && cursorDot) {
   followCursor();
 
   /* Grow on interactive elements */
-  const growTargets = document.querySelectorAll('a, button, .skill-card, .project-card, .timeline-item, .edu-card, .contact-item');
+  const growTargets = document.querySelectorAll('a, button, .skill-card, .project, .timeline-item, .edu-card, .contact-item');
   growTargets.forEach(el => {
     el.addEventListener('mouseenter', () => cursorDot.classList.add('grow'));
     el.addEventListener('mouseleave', () => cursorDot.classList.remove('grow'));
   });
 }
+
+/* =====================================================
+   PROJECT MEDIA LIGHTBOX
+   Works automatically for any .media-frame.has-image
+   containing an <img data-lightbox="..."> — no markup
+   changes needed elsewhere when real screenshots are added.
+   ===================================================== */
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+const lightboxImg      = document.getElementById('lightboxImg');
+const lightboxClose    = document.getElementById('lightboxClose');
+
+function openLightbox(src, alt) {
+  if (!lightboxOverlay || !lightboxImg) return;
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightboxOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  if (!lightboxOverlay) return;
+  lightboxOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.media-frame.has-image img[data-lightbox]').forEach(img => {
+  img.closest('.media-frame').addEventListener('click', () => {
+    openLightbox(img.getAttribute('data-lightbox'), img.alt);
+  });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightboxOverlay) {
+  lightboxOverlay.addEventListener('click', (e) => {
+    if (e.target === lightboxOverlay) closeLightbox();
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightboxOverlay && lightboxOverlay.classList.contains('open')) closeLightbox();
+});
 
 /* ===== CONTACT FORM ===== */
 const form      = document.getElementById('contactForm');

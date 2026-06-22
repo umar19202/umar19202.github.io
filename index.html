@@ -13,13 +13,13 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Umar Saeed — Senior PHP / Laravel Backend Engineer" />
 <meta name="twitter:description" content="5 years of Laravel, REST APIs, SaaS & multi-tenant systems." />
-<meta name="theme-color" content="#0a0a0a" />
+<meta name="theme-color" content="#FAF8F4" />
 
 <title>Umar Saeed — Senior PHP / Laravel Backend Engineer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -50,9 +50,9 @@
 </nav>
 
 <!-- ===== HERO (black) ===== -->
-<section class="hero panel-dark" id="hero" aria-label="Introduction">
-  <div class="hero-bg-noise" aria-hidden="true"></div>
+<section class="hero" id="hero" aria-label="Introduction">
   <div class="hero-inner container">
+    <div class="hero-rule" aria-hidden="true"></div>
     <div class="hero-badge mask-reveal">
       <span class="badge-dot"></span> Available for remote opportunities
     </div>
@@ -101,9 +101,9 @@
 </section>
 
 <!-- ===== ABOUT (white) ===== -->
-<section class="section panel-light about" id="about" aria-labelledby="about-heading">
+<section class="section about" id="about" aria-labelledby="about-heading">
   <div class="container">
-    <div class="section-label reveal">01 — Who I Am</div>
+    <div class="section-label reveal"><span class="num">I</span> — Who I Am</div>
     <h2 class="section-title reveal" id="about-heading">Passionate about<br><em>clean, scalable code.</em></h2>
     <div class="about-grid">
       <div class="about-text reveal">
@@ -114,6 +114,10 @@
           <div class="meta-item"><span class="meta-icon" aria-hidden="true">📍</span><span>Gujranwala, Punjab, Pakistan</span></div>
           <div class="meta-item"><span class="meta-icon" aria-hidden="true">🌍</span><span>Open to Remote Worldwide — PKT (UTC+5)</span></div>
           <div class="meta-item"><span class="meta-icon" aria-hidden="true">🗣️</span><span>English (Professional) · Urdu (Native)</span></div>
+        </div>
+        <div class="about-pullquote reveal">
+          <p>Good architecture doesn't announce itself — it just keeps working when the traffic, the team, and the requirements all triple.</p>
+          <span>Engineering Philosophy</span>
         </div>
       </div>
       <div class="about-highlights reveal">
@@ -127,48 +131,48 @@
 </section>
 
 <!-- ===== SKILLS (black) ===== -->
-<section class="section panel-dark skills" id="skills" aria-labelledby="skills-heading">
+<section class="section skills" id="skills" aria-labelledby="skills-heading">
   <div class="container">
-    <div class="section-label reveal">02 — What I Work With</div>
+    <div class="section-label reveal"><span class="num">II</span> — What I Work With</div>
     <h2 class="section-title reveal" id="skills-heading">Technical <em>Skills</em></h2>
     <div class="skills-grid">
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Backend Development skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Backend Development skills" data-letter="B">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">🔧</span><h3>Backend Development</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">PHP 8.x</span><span class="tag tag-primary">Laravel 8+</span><span class="tag">Eloquent ORM</span><span class="tag">RBAC</span><span class="tag">Sanctum</span><span class="tag">JWT Auth</span><span class="tag">Multi-Tenancy</span><span class="tag">SOLID Principles</span><span class="tag">Service Pattern</span><span class="tag">Repository Pattern</span><span class="tag">DTO Pattern</span><span class="tag">Policy Pattern</span><span class="tag">Laravel Socialite</span>
         </div>
       </div>
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Database skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Database skills" data-letter="D">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">🗄️</span><h3>Databases &amp; Caching</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">MySQL</span><span class="tag tag-primary">PostgreSQL</span><span class="tag tag-primary">Redis</span><span class="tag">PlanetScale</span><span class="tag">Composite Indexing</span><span class="tag">Eager Loading</span><span class="tag">N+1 Elimination</span><span class="tag">Temporary Tables</span><span class="tag">Query Optimization</span>
         </div>
       </div>
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Real-time and Communication skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Real-time and Communication skills" data-letter="R">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">⚡</span><h3>Real-Time &amp; APIs</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">RESTful APIs</span><span class="tag tag-primary">WebSockets</span><span class="tag">Pusher</span><span class="tag">Socket.io</span><span class="tag">Twilio SDK</span><span class="tag">Zoho CRM</span><span class="tag">Google Sheets API</span><span class="tag">OpenAI API</span>
         </div>
       </div>
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Cloud and DevOps skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Cloud and DevOps skills" data-letter="C">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">☁️</span><h3>Cloud &amp; DevOps</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">AWS S3</span><span class="tag tag-primary">Docker</span><span class="tag tag-primary">GitHub Actions</span><span class="tag">CI/CD Pipelines</span><span class="tag">Laravel Queues</span><span class="tag">Cron Jobs</span><span class="tag">cPanel</span><span class="tag">Event-Driven Design</span>
         </div>
       </div>
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Testing and Quality skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Testing and Quality skills" data-letter="T">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">🧪</span><h3>Testing &amp; Quality</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">PHPUnit</span><span class="tag tag-primary">PHPStan Level 6</span><span class="tag">Integration Testing</span><span class="tag">Unit Testing</span><span class="tag">Laravel Pint</span><span class="tag">Git / GitHub</span><span class="tag">Agile Development</span>
         </div>
       </div>
 
-      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Frontend and Payments skills">
+      <div class="skill-card reveal" tabindex="0" role="region" aria-label="Frontend and Payments skills" data-letter="P">
         <div class="skill-card-header"><span class="skill-icon" aria-hidden="true">💳</span><h3>Frontend &amp; Payments</h3></div>
         <div class="skill-tags">
           <span class="tag tag-primary">Stripe</span><span class="tag">Stripe Webhooks</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Axios</span><span class="tag">Bootstrap 5</span><span class="tag">SPA Dashboards</span>
@@ -180,12 +184,14 @@
 </section>
 
 <!-- ===== EXPERIENCE (white) ===== -->
-<section class="section panel-light experience" id="experience" aria-labelledby="experience-heading">
+<section class="section experience" id="experience" aria-labelledby="experience-heading">
   <div class="container">
-    <div class="section-label reveal">03 — Where I've Worked</div>
+    <div class="section-label reveal"><span class="num">III</span> — Where I've Worked</div>
     <h2 class="section-title reveal" id="experience-heading">Work <em>Experience</em></h2>
 
-    <div class="timeline">
+    <div class="timeline" id="timeline">
+      <div class="timeline-thread" id="timelineThread" aria-hidden="true"></div>
+
 
       <article class="timeline-item reveal" aria-label="Ventie 30 experience">
         <div class="timeline-marker" aria-hidden="true"></div>
@@ -241,7 +247,7 @@
         </div>
       </article>
 
-      <article class="timeline-item reveal" aria-label="Appcrates experience">
+      <article class="timeline-item reveal" aria-label="AppCrates experience">
         <div class="timeline-marker" aria-hidden="true"></div>
         <div class="timeline-content">
           <div class="timeline-header">
@@ -250,7 +256,7 @@
               <span class="timeline-location">Gujranwala, Pakistan</span>
             </div>
             <div class="timeline-title-block">
-              <h3 class="timeline-company">Appcrates</h3>
+              <h3 class="timeline-company">AppCrates</h3>
               <p class="timeline-role">PHP / Laravel Developer</p>
             </div>
           </div>
@@ -272,88 +278,148 @@
 </section>
 
 <!-- ===== PROJECTS (black) ===== -->
-<section class="section panel-dark projects" id="projects" aria-labelledby="projects-heading">
+<section class="section projects" id="projects" aria-labelledby="projects-heading">
   <div class="container">
-    <div class="section-label reveal">04 — What I've Built</div>
+    <div class="section-label reveal"><span class="num">IV</span> — What I've Built</div>
     <h2 class="section-title reveal" id="projects-heading">Featured <em>Projects</em></h2>
-    <div class="projects-grid">
+    <div class="projects-list">
 
-      <article class="project-card reveal featured" aria-label="ExtraTrik project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">🏥</div>
-          <div class="project-links"><a href="https://extratik.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit ExtraTrik">↗</a></div>
+      <article class="project reveal" aria-label="ExtraTrik project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/tomerge.png" alt="ExtraTrik dashboard screenshot" class="media-image" data-lightbox="assets/screenshots/tomerge.png">
+          </div>
+          <div class="media-logo-chip"><img src="assets/logos/extratik.png" alt="ExtraTrik logo" loading="lazy"></div>
         </div>
-        <div class="project-badge">Multi-Tenant Healthcare ERP</div>
-        <h3 class="project-title">ExtraTrik</h3>
-        <p class="project-company">The Turkish Healthcare ERP</p>
-        <p class="project-desc">
-          A multi-tenant communication ERP serving multiple Turkish healthcare clinics from one codebase, each with a fully isolated dashboard, data store, and webhook namespace behind a custom centralized authentication layer.
-          At its core is a <strong>real-time, 3-column SPA dashboard</strong> built with JavaScript, jQuery, and Axios — unifying Zoho CRM with omnichannel chat (WhatsApp, Messenger, Instagram), Twilio video calling, and OpenAI-powered translation and grammar-checking, all updating live without a single page reload.
-          The platform was built to scale: reporting infrastructure handles <strong>1M+ chat rooms and 20M+ messages</strong>, with MySQL temporary tables, Redis caching, and automated cron tasks cutting critical query filter times from timeouts down to seconds. AWS S3 secures every chat media upload, attachment, and call recording across all clinic tenants, while Laravel Queues drive asynchronous bulk-import workflows with custom start, pause, and resume state handling. The whole system is backed by PHPUnit test suites and a GitHub Actions CI/CD pipeline maintained across a remote Agile team in Istanbul.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">WebSockets</span><span class="tag">Twilio</span><span class="tag">Zoho CRM</span><span class="tag">OpenAI API</span><span class="tag">AWS S3</span><span class="tag">Laravel Queues</span><span class="tag">PHPUnit</span>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">Multi-Tenant Healthcare ERP</span>
+          <h3 class="project-title">ExtraTrik</h3>
+          <p class="project-company">The Turkish Healthcare ERP · Istanbul, Turkey</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>Multiple independent Turkish clinics needed one platform — but each required full data isolation, its own dashboard, and a separate webhook namespace behind a single centralized auth layer.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>A multi-tenant ERP with a real-time 3-column SPA dashboard unifying Zoho CRM, omnichannel chat (WhatsApp, Messenger, Instagram), Twilio video, and OpenAI-powered translation — all live, no page reloads.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>Reporting now handles <strong>1M+ chat rooms and 20M+ messages</strong>, with Redis caching and cron automation cutting filter queries from timeouts to seconds, backed by PHPUnit and GitHub Actions CI/CD.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">WebSockets</span><span class="tag">Twilio</span><span class="tag">Zoho CRM</span><span class="tag">OpenAI API</span><span class="tag">AWS S3</span></div>
+            <a href="https://extratik.com" target="_blank" rel="noopener noreferrer" class="project-link">Visit site <span>↗</span></a>
+          </div>
         </div>
       </article>
 
-      <article class="project-card reveal" aria-label="WBSC Sports ERP project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">⚾</div>
-          <div class="project-links"><a href="https://www.ventie30.it" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Ventie30">↗</a></div>
+      <article class="project reveal" aria-label="WBSC Sports ERP project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/wbsc.png" alt="Ventie 30 / WBSC dashboard screenshot" class="media-image" data-lightbox="assets/screenshots/wbsc.png">
+          </div>
+          <div class="media-logo-chip"><img src="assets/logos/wbsc.png" alt="WBSC logo" loading="lazy"></div>
         </div>
-        <div class="project-badge">Sports ERP</div>
-        <h3 class="project-title">Ventie30 / WBSC</h3>
-        <p class="project-company">World Baseball Softball Confederation</p>
-        <p class="project-desc">Multi-module sports data management ERP for the WBSC. Features a custom Google Sheets API integration engine for dynamic permission management, multilingual support, and form-to-database workflows powering international sports operations.</p>
-        <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">Google Sheets API</span></div>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">Sports Data ERP</span>
+          <h3 class="project-title">Ventie 30 / WBSC</h3>
+          <p class="project-company">World Baseball Softball Confederation</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>The WBSC needed multi-module sports data management and permission control across international federations without a costly custom permissions build.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>A custom Google Sheets API integration engine driving dynamic permission management, multilingual support, and form-to-database workflows.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>Powers ongoing international sports operations for the World Baseball Softball Confederation today.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">Google Sheets API</span></div>
+            <a href="https://www.ventie30.it" target="_blank" rel="noopener noreferrer" class="project-link">Visit site <span>↗</span></a>
+          </div>
+        </div>
       </article>
 
-      <article class="project-card reveal" aria-label="SportSocial project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">🎙️</div>
-          <div class="project-links"><a href="https://app.sport-social.co.uk" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit SportSocial">↗</a></div>
+      <article class="project reveal" aria-label="Sport-Social project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/sport-social.png" alt="Sport-Social platform screenshot" class="media-image" data-lightbox="assets/screenshots/sport-social.png">
+          </div>
+          <div class="media-logo-chip"><img src="assets/logos/sportsocial.jpg" alt="Sport-Social logo" loading="lazy"></div>
         </div>
-        <div class="project-badge">Sports Streaming</div>
-        <h3 class="project-title">Sport-Social</h3>
-        <p class="project-company">Sports Podcast Network</p>
-        <p class="project-desc">Sports podcast network with automated third-party podcast ingestion via Cron jobs, per-user episode progress tracking, live episode purchases, and full iOS/Android mobile APIs on MySQL.</p>
-        <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">jQuery</span><span class="tag">Cron Jobs</span><span class="tag">REST APIs</span></div>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">Sports Streaming</span>
+          <h3 class="project-title">Sport-Social</h3>
+          <p class="project-company">Sports Podcast Network</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>A podcast network needed to ingest third-party shows automatically and let listeners buy and track episodes across iOS and Android.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>Automated third-party podcast ingestion via Cron jobs, per-user episode progress tracking, live purchases, and full mobile APIs on MySQL.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>A live sports podcast network serving mobile listeners with seamless purchase and playback tracking.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">jQuery</span><span class="tag">Cron Jobs</span><span class="tag">REST APIs</span></div>
+            <a href="https://app.sport-social.co.uk" target="_blank" rel="noopener noreferrer" class="project-link">Visit site <span>↗</span></a>
+          </div>
+        </div>
       </article>
 
-      <article class="project-card reveal" aria-label="Bell3 project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">💬</div>
-          <div class="project-links"><a href="https://app.bell3.net" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Bell3">↗</a></div>
+      <article class="project reveal" aria-label="Bell3 project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/bell3.png" alt="Bell3 platform screenshot" class="media-image" data-lightbox="assets/screenshots/bell3.png">
+          </div>
+          <div class="media-logo-chip"><img src="assets/logos/bell3.jpg" alt="Bell3 logo" loading="lazy"></div>
         </div>
-        <div class="project-badge">Social Commerce</div>
-        <h3 class="project-title">Bell3</h3>
-        <p class="project-company">Social Communication Platform</p>
-        <p class="project-desc">Social commerce APIs for posts, comments, digital and physical product sales, and Stripe-powered promotions, built on PlanetScale with AWS S3 storage, Pusher, and Docker containerization.</p>
-        <div class="project-tags"><span class="tag">Laravel</span><span class="tag">PlanetScale</span><span class="tag">Stripe</span><span class="tag">AWS S3</span><span class="tag">Pusher</span><span class="tag">Docker</span></div>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">Social Commerce</span>
+          <h3 class="project-title">Bell3</h3>
+          <p class="project-company">Social Communication Platform</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>A social commerce platform needed posts, comments, and both digital and physical product sales running on one scalable backend.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>Social commerce APIs with Stripe-powered promotions on PlanetScale, AWS S3 storage, Pusher real-time updates, and Docker containerization.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>A live platform handling real-time interactions and payments at scale.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel</span><span class="tag">PlanetScale</span><span class="tag">Stripe</span><span class="tag">AWS S3</span><span class="tag">Pusher</span><span class="tag">Docker</span></div>
+            <a href="https://app.bell3.net" target="_blank" rel="noopener noreferrer" class="project-link">Visit site <span>↗</span></a>
+          </div>
+        </div>
       </article>
 
-      <article class="project-card reveal" aria-label="Caspers project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">🛒</div>
-          <div class="project-links"><a href="https://caspersservice.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Caspers">↗</a></div>
+      <article class="project reveal" aria-label="Caspers project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/casper.png" alt="Caspers marketplace screenshot" class="media-image" data-lightbox="assets/screenshots/casper.png">
+          </div>
+          <div class="media-logo-chip"><img src="assets/logos/caspers.png" alt="Caspers Service Company logo" loading="lazy"></div>
         </div>
-        <div class="project-badge">B2B Marketplace</div>
-        <h3 class="project-title">Caspers</h3>
-        <p class="project-company">Multi-Role Equipment Marketplace</p>
-        <p class="project-desc">Multi-role marketplace for equipment, spare parts, and repair services with full iOS/Android mobile APIs serving professionals, companies, and end-users.</p>
-        <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">JavaScript</span></div>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">B2B Marketplace</span>
+          <h3 class="project-title">Caspers</h3>
+          <p class="project-company">Multi-Role Equipment Marketplace</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>Equipment owners, repair companies, and end-users needed one marketplace to list, find, and service equipment and spare parts across web and mobile.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>A multi-role marketplace backend with full iOS/Android mobile APIs built on Laravel and MySQL.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>A live marketplace serving professionals, companies, and end-users today.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">JavaScript</span></div>
+            <a href="https://caspersservice.com" target="_blank" rel="noopener noreferrer" class="project-link">Visit site <span>↗</span></a>
+          </div>
+        </div>
       </article>
 
-      <article class="project-card reveal" aria-label="TaskFlow API project">
-        <div class="project-header">
-          <div class="project-icon" aria-hidden="true">🔬</div>
-          <div class="project-links"><a href="https://github.com/umar19202" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">↗</a></div>
+      <article class="project reveal" aria-label="TaskFlow API project">
+        <div class="project-media">
+          <div class="media-frame has-image">
+            <img src="assets/screenshots/task-flow.jpg" alt="TaskFlow API documentation screenshot" class="media-image" data-lightbox="assets/screenshots/task-flow.jpg">
+          </div>
+          <div class="media-logo-chip is-monogram" aria-hidden="true">TF</div>
         </div>
-        <div class="project-badge">Open Source</div>
-        <h3 class="project-title">TaskFlow API</h3>
-        <p class="project-company">Clean Architecture Reference Project</p>
-        <p class="project-desc">Production-grade Laravel 12 REST API demonstrating clean architecture (Service, Repository, DTO, Policy patterns), PHPUnit automated testing, PHPStan Level 6 static analysis, GitHub Actions CI/CD pipeline, and Docker containerization.</p>
-        <div class="project-tags"><span class="tag">Laravel 12</span><span class="tag">PHPUnit</span><span class="tag">PHPStan</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+        <div class="project-body">
+          <span class="project-eyebrow meta-label">Open Source</span>
+          <h3 class="project-title">TaskFlow API</h3>
+          <p class="project-company">Clean Architecture Reference Project</p>
+          <div class="project-detail-grid">
+            <div class="detail-block"><span class="detail-label">Problem</span><p>Client codebases are private, so recruiters never see how I structure architecture, testing, or CI/CD — only the shipped product.</p></div>
+            <div class="detail-block"><span class="detail-label">Solution</span><p>A production-grade Laravel 12 REST API built with Service, Repository, DTO, and Policy patterns, PHPUnit testing, and PHPStan Level 6 static analysis.</p></div>
+            <div class="detail-block"><span class="detail-label">Result</span><p>An open-source reference project demonstrating senior-level backend architecture, fully covered by a GitHub Actions CI/CD pipeline.</p></div>
+          </div>
+          <div class="project-footer-row">
+            <div class="project-tags"><span class="tag">Laravel 12</span><span class="tag">PHPUnit</span><span class="tag">PHPStan</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+            <a href="https://github.com/umar19202/taskflow-api" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <span>↗</span></a>
+          </div>
+        </div>
       </article>
 
     </div>
@@ -361,9 +427,9 @@
 </section>
 
 <!-- ===== EDUCATION (white) ===== -->
-<section class="section panel-light education" id="education" aria-labelledby="education-heading">
+<section class="section education" id="education" aria-labelledby="education-heading">
   <div class="container">
-    <div class="section-label reveal">05 — Academic Background</div>
+    <div class="section-label reveal"><span class="num">V</span> — Academic Background</div>
     <h2 class="section-title reveal" id="education-heading"><em>Education</em></h2>
     <div class="education-grid">
       <article class="edu-card reveal" aria-label="MSc Information Technology">
@@ -389,9 +455,9 @@
 </section>
 
 <!-- ===== CONTACT (black) ===== -->
-<section class="section panel-dark contact" id="contact" aria-labelledby="contact-heading">
+<section class="section contact" id="contact" aria-labelledby="contact-heading">
   <div class="container">
-    <div class="section-label reveal">06 — Let's Work Together</div>
+    <div class="section-label reveal"><span class="num">VI</span> — Let's Work Together</div>
     <h2 class="section-title reveal" id="contact-heading">Open to Remote <em>Opportunities</em></h2>
     <p class="contact-desc reveal">I'm available for senior Laravel/PHP backend roles worldwide. If you're building something with Laravel, REST APIs, real-time systems, or payment integrations — let's talk.</p>
 
@@ -416,7 +482,7 @@
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="footer panel-dark" role="contentinfo">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">Umar Saeed</div>
@@ -427,6 +493,12 @@
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- lightbox — used by the project media component once real screenshots are added -->
+<div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">✕</button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg">
+</div>
 
 <script src="js/main.js"></script>
 </body>
